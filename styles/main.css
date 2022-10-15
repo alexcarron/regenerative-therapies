@@ -222,7 +222,7 @@ nav {
 		filter: brightness(150%);
 	}
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 885px) {
 	/*  NAVIGATION MENU LINKS */
 	nav>a {
 		display: none;

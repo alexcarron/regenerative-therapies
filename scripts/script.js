@@ -81,8 +81,13 @@ function loadWebPage() {
 
 			</div>
 
+
 			<a href="./index.html" class="home_link">
 				Home
+			</a>
+
+			<a href="./accounts.html" class="accounts_link">
+				Accounts
 			</a>
 
 			<a href="./counseling.html" class="counseling_link">
@@ -93,8 +98,12 @@ function loadWebPage() {
 				Tai Chi Gung
 			</a>
 
-			<a href="./product_support.html" class="product_support_link">
-				Products Support
+			<a href="./nutrition.html" class="nutrition_link">
+				Nutrition
+			</a>
+
+			<a href="./silver_gold.html" class="silver_gold_link">
+				Silver/Gold
 			</a>
 
 			<a href="about_us.html" class="about_us_link">
