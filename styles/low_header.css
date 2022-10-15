@@ -1,0 +1,8 @@
+/* HEADER */
+header {
+	max-height: 300px;
+}
+
+	header>div.video {
+		max-height: 300px;
+	}

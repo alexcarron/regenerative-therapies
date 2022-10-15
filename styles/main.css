@@ -1,0 +1,326 @@
+/* Alexander Carron - May 17th 2022 */
+:root {
+	--most-light-color: #FFFFFF;
+	--very-light-color: #E6E6E6;
+	--call-to-action-color: #ecc550;
+	--bright-color: #4f84c6;
+	--light-color: #416591;
+	--dark-color: #334c6a;
+	--very-dark-color: #5E5F62;
+	--most-dark-color: #333333;
+	--header-height-ratio: calc(744.75/1324);
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	background: var(--very-light-color);
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* HEADER */
+header {
+	box-sizing:border-box;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background: #2d679130;
+
+	width: 100vw;
+	height: calc(var(--header-height-ratio) * 100vw);
+	max-height: 100vh;
+	padding: 10pt;
+
+	text-align: center;
+	color: var(--very-light-color);
+}
+
+	header>div.video_container {
+		position: absolute;
+		top: 0%;
+		left: 0%;
+
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+
+		height: calc(var(--header-height-ratio) * 100vw);
+		max-height: 100vh;
+		filter: brightness(20%);
+		z-index: -1;
+
+		overflow: hidden;
+	}
+
+	header>div.video_container video {
+		width: 100vw;
+	}
+
+	header>h1 {
+		font-weight: bold;
+		font-size: 7vw;
+		text-shadow: 5px 5px 5px #000000;
+
+		z-index: 0;
+	}
+
+	header>img {
+		position: relative;
+
+		height: 8vw;
+		margin-right: 2vw;
+		filter: drop-shadow(5px 5px 5px #000000);
+
+		z-index: 0;
+	}
+
+
+
+/* NAV */
+nav {
+	box-sizing: border-box;
+
+	position: fixed;
+	top: 0;
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	box-shadow: 0 0 2vw #000000;
+
+	background: #000000A0;
+	width: 100vw;
+	height: 50px;
+	padding-left: 20px;
+
+	transition: background 250ms ease;
+
+	z-index: 1;
+}
+
+	/* HAMBURGER MENU */
+	nav>div#hamburger_menu {
+		display: none;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		width: 100vw;
+		height: max-content;
+
+		z-index: 1;
+	}
+		/* HAMBURGER MENU BUTTON */
+		nav>div#hamburger_menu div#hamburger_menu_button {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+
+			padding: 0 5px;
+
+			cursor: pointer;
+
+			transition: background 200ms ease;
+		}
+
+		nav>div#hamburger_menu div#hamburger_menu_button:hover {
+			transition: background 200ms ease;
+
+			background: #FFFFFF20;
+		}
+			/* HAMBURGER MENU ICON */
+			nav>div#hamburger_menu div#hamburger_menu_button img {
+				box-sizing: border-box;
+
+				width: 50px;
+				height: 50px;
+
+				padding: 5px 5px;
+
+				/* Makes SVG Light-gray */
+				filter: invert(98%) sepia(1%) saturate(289%) hue-rotate(16deg) brightness(109%) contrast(80%) drop-shadow(2px 2px 1px #000000);
+			}
+			nav>div#hamburger_menu div#hamburger_menu_button p {
+				margin-left: 5px;
+
+				font-size: 20pt;
+				font-weight: bold;
+				text-shadow: 2px 2px 1px #000000;
+			}
+
+
+		/* HAMBURGER MENU LINKS */
+		nav>div#hamburger_menu>div#links {
+			box-sizing: border-box;
+			position: relative;
+			right: -100vw;
+
+			width: 100vw;
+
+			z-index: 1;
+		}
+
+			nav>div#hamburger_menu>div#links a {
+				box-sizing: border-box;
+				position: relative;
+
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+
+				width: 100vw;
+				height: 40px;
+				padding-left: 10px;
+
+				background: #000000E0;
+
+				font-weight: bold;
+				text-decoration: none;
+				font-size: 16pt;
+				text-shadow: 2px 2px 1px #000000;
+
+				transition: background 200ms ease;
+
+				z-index: 1;
+			}
+
+			/* HAMBURGER MENU LINKS */
+			nav>div#hamburger_menu>div#links a:hover {
+				background: #000000ff;
+			}
+
+	/*  NAVIGATION MENU LINKS */
+	nav a {
+		color: var(--very-light-color);
+	}
+
+	nav>a {
+		box-sizing: border-box;
+
+		padding: 0 15px;
+
+		color: var(--very-light-color);
+		text-shadow: 2px 2px 1px #000000;
+		text-decoration: none;
+		font-size: 16pt;
+		font-weight: bold;
+
+		transition: filter 150ms ease;
+	}
+
+	nav>a:hover {
+		filter: brightness(150%);
+	}
+
+@media only screen and (max-width: 720px) {
+	/*  NAVIGATION MENU LINKS */
+	nav>a {
+		display: none;
+	}
+
+	/* HAMBURGER MENU ICON */
+	nav>div#hamburger_menu {
+		display: flex;
+	}
+}
+
+
+
+/* MAIN */
+main {
+	background-color: var(--most-light-color);
+}
+
+	main>section {
+		box-sizing: border-box;
+		padding: 60px 50px;
+
+		background: var(--most-light-color);
+		color: var(--most-dark-color);
+	}
+
+
+	main>section:nth-child(2n) {
+		background: var(--very-light-color);
+	}
+
+		main>section h1 {
+			font-size: 36pt;
+			color: var(--dark-color);
+
+			overflow: hidden;
+		}
+
+		main>section h2 {
+			font-size: 28pt;
+			margin-top: 20px;
+
+			overflow: hidden;
+		}
+
+		main>section h1:not(h1:first-child) {
+			margin-top: 30px;
+		}
+
+		main>section p {
+			font-size: 14pt;
+			margin-top: 10px;
+
+			overflow: hidden;
+		}
+
+
+/* FOOTER */
+footer {
+	box-sizing: border-box;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+
+	box-shadow: 0 0 1vw #000000;
+
+	padding: 30px;
+	background-color: var(--most-dark-color);
+	color: var(--most-light-color);
+	text-align: center;
+}
+
+	footer div {
+		margin: 20px 10px;
+	}
+
+		footer a {
+			color: var(--very-light-color);
+			font-weight: normal;
+		}
+
+		footer h1 {
+			font-size: 18pt;
+			font-weight: bold;
+		}
+
+		footer p {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			font-size: 13pt;
+			font-weight: normal;
+		}
+
+		footer img {
+			height: 13pt;
+			margin: 0 5px;
+		}
