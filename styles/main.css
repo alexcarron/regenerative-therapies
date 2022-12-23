@@ -2,13 +2,26 @@
 :root {
 	--most-light-color: #FFFFFF;
 	--very-light-color: #E6E6E6;
-	--call-to-action-color: #ecc550;
+	--subtle-call-to-action-color: #ecf9ff;
+	--call-to-action-color: #4fa4c6;
 	--bright-color: #4f84c6;
 	--light-color: #416591;
 	--dark-color: #334c6a;
 	--very-dark-color: #5E5F62;
 	--most-dark-color: #333333;
 	--header-height-ratio: calc(744.75/1324);
+
+	--header-size: 36px;
+	--header-size-vw: 2.8vw;
+
+	--subheader-size: 30px;
+	--subheader-size-vw: 2.4vw;
+
+	--body-text-size: 18px;
+	--body-text-size-vw: 1.25vw;
+
+	--image-width: 300px;
+	--image-width-vw: 20vw;
 }
 
 * {
@@ -21,8 +34,41 @@ html {
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+/* Loading Screen */
+div#loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--most-light-color);
+	z-index: 9999;
+	opacity: 100%;
+
+	transition: all 500ms ease-in-out;
+}
+
+	div.loader {
+		border: 16px solid var(--very-light-color);
+		border-top: 16px solid var(--most-dark-color);
+		border-radius: 50%;
+		width: 120px;
+		height: 120px;
+		animation: spin 2s linear infinite;
+	}
+
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+
+
 /* HEADER */
 header {
+	position: relative;
 	box-sizing:border-box;
 
 	display: flex;
@@ -33,12 +79,38 @@ header {
 
 	width: 100vw;
 	height: calc(var(--header-height-ratio) * 100vw);
-	max-height: 100vh;
+	/* max-height: 100vh; */
+	max-height: 300px;
 	padding: 10pt;
 
 	text-align: center;
 	color: var(--very-light-color);
 }
+
+	header>p#fade_text {
+		position: absolute;
+		bottom: 20px;
+
+		font-size: min(var(--subheader-size-vw), var(--subheader-size));
+
+		opacity: 0;
+		animation: fadeInOut 12s infinite;
+	}
+
+	@keyframes fadeInOut {
+	0% {
+		opacity: 0;
+	}
+	33% {
+		opacity: 1;
+	}
+	66% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+	}
 
 	header>div.video_container {
 		position: absolute;
@@ -50,7 +122,8 @@ header {
 		height: 100%;
 
 		height: calc(var(--header-height-ratio) * 100vw);
-		max-height: 100vh;
+		/* max-height: 100vh; */
+		max-height: 300px;
 		filter: brightness(20%);
 		z-index: -1;
 
@@ -184,8 +257,6 @@ nav {
 
 				background: #000000E0;
 
-				font-weight: bold;
-				text-decoration: none;
 				font-size: 16pt;
 				text-shadow: 2px 2px 1px #000000;
 
@@ -202,6 +273,15 @@ nav {
 	/*  NAVIGATION MENU LINKS */
 	nav a {
 		color: var(--very-light-color);
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	/* ABSOLUTE LINKS */
+	nav a.href {
+		color: var(--subtle-call-to-action-color);
+		font-weight: normal;
+		text-decoration: underline;
 	}
 
 	nav>a {
@@ -209,7 +289,6 @@ nav {
 
 		padding: 0 15px;
 
-		color: var(--very-light-color);
 		text-shadow: 2px 2px 1px #000000;
 		text-decoration: none;
 		font-size: 16pt;
@@ -222,7 +301,7 @@ nav {
 		filter: brightness(150%);
 	}
 
-@media only screen and (max-width: 885px) {
+@media only screen and (max-width: 950px) {
 	/*  NAVIGATION MENU LINKS */
 	nav>a {
 		display: none;
@@ -238,12 +317,21 @@ nav {
 
 /* MAIN */
 main {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-evenly;
+
 	background-color: var(--most-light-color);
 }
 
 	main>section {
+		position: relative;
 		box-sizing: border-box;
-		padding: 60px 50px;
+		padding: min(4.2vw, 60px) min(3.5vw, 50px);
+
+		width: 100%;
 
 		background: var(--most-light-color);
 		color: var(--most-dark-color);
@@ -255,28 +343,43 @@ main {
 	}
 
 		main>section h1 {
-			font-size: 36pt;
+			font-size: min(var(--header-size), var(--header-size-vw));
 			color: var(--dark-color);
 
 			overflow: hidden;
 		}
 
 		main>section h2 {
-			font-size: 28pt;
-			margin-top: 20px;
+			font-size: min(var(--subheader-size), var(--subheader-size-vw));
+			margin-top: 30px;
 
 			overflow: hidden;
 		}
 
 		main>section h1:not(h1:first-child) {
-			margin-top: 30px;
+			margin-top: 45px;
 		}
 
 		main>section p {
-			font-size: 14pt;
+			font-size: min(var(--body-text-size), var(--body-text-size-vw));
 			margin-top: 10px;
 
 			overflow: hidden;
+		}
+
+		main>section li {
+			font-size: min(var(--body-text-size), var(--body-text-size-vw));
+			margin-top: 10px;
+		}
+
+		main>section img {
+			max-width: min(var(--image-width), var(--image-width-vw));
+			max-height: min(var(--image-width), var(--image-width-vw));
+			border-radius: 15px;
+		}
+
+		main a {
+			color: var(--call-to-action-color);
 		}
 
 

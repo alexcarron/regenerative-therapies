@@ -1,0 +1,11 @@
+
+main {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+nav a.nutrition_link {
+	color: var(--bright-color);
+	text-shadow: 2px 2px 1px #000000;
+}
