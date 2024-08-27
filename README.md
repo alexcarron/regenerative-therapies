@@ -1,3 +1,4 @@
 # regenerative-therapies
-A website for the Regenerative Therapies
-[Regenerative Therapies Website](regenerativetherapies.org)
+A website for the company, Regenerative Therapies
+
+[Visit the Regenerative Therapies Website](https://regenerativetherapies.org)
